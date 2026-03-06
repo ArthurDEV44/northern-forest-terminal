@@ -1,0 +1,57 @@
+# Ghostty - Northern Forest
+# Inspired by boreal forests and aurora borealis
+
+# Shell
+command = /usr/bin/zsh
+
+# Font
+font-family = JetBrainsMono Nerd Font
+font-size = 13
+
+# Background & foreground
+background = #0b1215
+foreground = #c5d1cc
+
+# Semi-transparency (uncomment for wallpaper bleed-through)
+background-opacity = 0.90
+background-blur = 20
+
+# Cursor (warm teal glow)
+cursor-color = #56d6b6
+cursor-text = #0b1215
+cursor-style = block
+
+# Selection (deep forest)
+selection-background = #1e3a34
+selection-foreground = #e0ece6
+
+# Window
+window-padding-x = 10
+window-padding-y = 6
+window-padding-color = background
+
+# Palette - Northern Forest
+# Black (deep bark)
+palette = 0=#0f1a1d
+palette = 8=#3a4f4a
+# Red (autumn berry)
+palette = 1=#d4555e
+palette = 9=#e87878
+# Green (moss)
+palette = 2=#56b68a
+palette = 10=#7ddba8
+# Yellow (amber lichen)
+palette = 3=#d4a35c
+palette = 11=#e8c478
+# Blue (twilight sky)
+palette = 4=#5b8fb4
+palette = 12=#7cb3d4
+# Magenta (foxglove)
+palette = 5=#b578b4
+palette = 13=#d09acf
+# Cyan (glacier stream)
+palette = 6=#4dc4b0
+palette = 14=#72dbc9
+# White (morning mist)
+palette = 7=#b8c8c0
+palette = 15=#e0ece6

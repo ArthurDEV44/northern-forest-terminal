@@ -1,0 +1,171 @@
+# Northern Forest - Starship Prompt
+# Single-line powerline with user@host
+
+format = """
+[](fg:nf_bark)\
+$os\
+$username\
+[](fg:nf_bark bg:nf_deep)\
+$hostname\
+[](fg:nf_deep bg:nf_moss)\
+$directory\
+[](fg:nf_moss bg:nf_twilight)\
+$git_branch\
+$git_status\
+[](fg:nf_twilight bg:nf_shade)\
+$nodejs\
+$rust\
+$golang\
+$python\
+$java\
+$php\
+$ruby\
+$docker_context\
+[](fg:nf_shade)\
+$fill\
+[](fg:nf_shade)\
+$cmd_duration\
+[](fg:nf_twilight bg:nf_shade)\
+$time\
+[](fg:nf_bark bg:nf_twilight)\
+ """
+
+palette = "northern_forest"
+
+[palettes.northern_forest]
+# Core tones
+nf_bark = "#152025"
+nf_deep = "#1a3035"
+nf_moss = "#1e3d3a"
+nf_twilight = "#243838"
+nf_shade = "#2a4240"
+# Text & accents
+nf_mist = "#c5d1cc"
+nf_dim = "#6b8580"
+nf_teal = "#56d6b6"
+nf_cyan = "#4dc4b0"
+nf_green = "#56b68a"
+nf_bright_green = "#7ddba8"
+nf_amber = "#d4a35c"
+nf_bright_amber = "#e8c478"
+nf_sky = "#5b8fb4"
+nf_foxglove = "#b578b4"
+nf_berry = "#d4555e"
+nf_bright_berry = "#e87878"
+
+[os]
+disabled = false
+style = "bg:nf_bark fg:nf_teal"
+
+[os.symbols]
+Fedora = " "
+Ubuntu = " "
+Debian = " "
+Arch = " "
+Macos = " "
+Linux = " "
+Windows = "󰍲 "
+
+[username]
+show_always = true
+style_user = "bg:nf_bark fg:nf_cyan bold"
+style_root = "bg:nf_bark fg:nf_berry bold"
+format = "[ $user ]($style)"
+
+[hostname]
+ssh_only = false
+style = "bg:nf_deep fg:nf_teal"
+format = "[  $hostname ]($style)"
+
+[directory]
+style = "bg:nf_moss fg:nf_bright_green bold"
+format = "[  $path ]($style)"
+truncation_length = 3
+truncation_symbol = ".../"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Projects" = "󰲋 "
+"dev" = " "
+
+[git_branch]
+symbol = " "
+style = "bg:nf_twilight fg:nf_bright_green"
+format = "[ $symbol$branch ]($style)"
+
+[git_status]
+style = "bg:nf_twilight fg:nf_bright_amber"
+format = "[$all_status$ahead_behind ]($style)"
+conflicted = " "
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+untracked = " "
+stashed = " "
+modified = " "
+staged = " "
+renamed = "󰑕 "
+deleted = " "
+
+[nodejs]
+symbol = " "
+style = "bg:nf_shade fg:nf_bright_green"
+format = "[ $symbol$version ]($style)"
+
+[rust]
+symbol = "󱘗 "
+style = "bg:nf_shade fg:nf_bright_berry"
+format = "[ $symbol$version ]($style)"
+
+[golang]
+symbol = " "
+style = "bg:nf_shade fg:nf_cyan"
+format = "[ $symbol$version ]($style)"
+
+[python]
+symbol = " "
+style = "bg:nf_shade fg:nf_bright_amber"
+format = "[ $symbol$version ]($style)"
+
+[java]
+symbol = " "
+style = "bg:nf_shade fg:nf_bright_berry"
+format = "[ $symbol$version ]($style)"
+
+[php]
+symbol = " "
+style = "bg:nf_shade fg:nf_foxglove"
+format = "[ $symbol$version ]($style)"
+
+[ruby]
+symbol = " "
+style = "bg:nf_shade fg:nf_berry"
+format = "[ $symbol$version ]($style)"
+
+[docker_context]
+symbol = " "
+style = "bg:nf_shade fg:nf_sky"
+format = "[ $symbol$context ]($style)"
+
+[fill]
+symbol = " "
+
+[cmd_duration]
+min_time = 2_000
+style = "bg:nf_shade fg:nf_bright_amber"
+format = "[ 󱎫 $duration ]($style)"
+
+[time]
+disabled = false
+time_format = "%H:%M"
+style = "bg:nf_twilight fg:nf_dim"
+format = "[  $time ]($style)"
+
+[line_break]
+disabled = true
+
+[character]
+disabled = true
