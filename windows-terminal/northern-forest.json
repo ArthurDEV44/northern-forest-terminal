@@ -1,0 +1,26 @@
+{
+    "name": "Northern Forest",
+
+    "background": "#0b1215",
+    "foreground": "#c5d1cc",
+    "cursorColor": "#56d6b6",
+    "selectionBackground": "#1e3a34",
+
+    "black":         "#0f1a1d",
+    "red":           "#d4555e",
+    "green":         "#56b68a",
+    "yellow":        "#d4a35c",
+    "blue":          "#5b8fb4",
+    "purple":        "#b578b4",
+    "cyan":          "#4dc4b0",
+    "white":         "#b8c8c0",
+
+    "brightBlack":   "#3a4f4a",
+    "brightRed":     "#e87878",
+    "brightGreen":   "#7ddba8",
+    "brightYellow":  "#e8c478",
+    "brightBlue":    "#7cb3d4",
+    "brightPurple":  "#d09acf",
+    "brightCyan":    "#72dbc9",
+    "brightWhite":   "#e0ece6"
+}
