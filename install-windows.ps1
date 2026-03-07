@@ -142,5 +142,5 @@ if (Test-Path $BackupDir) {
 }
 Write-Host "Done! Restart your terminal to see Northern Forest." -ForegroundColor Green
 Write-Host ""
-Write-Host "If the font doesn't render icons, ensure JetBrainsMono Nerd Font is installed:" -ForegroundColor DarkGray
+Write-Host "If the font does not render icons, ensure JetBrainsMono Nerd Font is installed:" -ForegroundColor DarkGray
 Write-Host "  winget install DEVCOM.JetBrainsMonoNerdFont" -ForegroundColor DarkGray

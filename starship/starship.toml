@@ -28,7 +28,8 @@ $cmd_duration\
 [](fg:nf_twilight bg:nf_shade)\
 $time\
 [](fg:nf_bark bg:nf_twilight)\
- """
+$line_break\
+$character"""
 
 palette = "northern_forest"
 
@@ -165,7 +166,9 @@ style = "bg:nf_twilight fg:nf_dim"
 format = "[  $time ]($style)"
 
 [line_break]
-disabled = true
+disabled = false
 
 [character]
-disabled = true
+disabled = false
+success_symbol = "[❯](fg:nf_teal)"
+error_symbol = "[❯](fg:nf_berry)"
