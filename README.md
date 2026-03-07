@@ -1,6 +1,6 @@
 # Northern Forest Terminal
 
-A boreal-inspired terminal theme for **Linux** and **Windows**.
+A boreal-inspired terminal theme for **Linux**, **macOS**, and **Windows**.
 
 Dark, muted tones inspired by northern forests, aurora borealis, and morning mist.
 
@@ -27,6 +27,9 @@ starship/starship.toml                      # Starship prompt (cross-platform)
 zsh/.zshrc                                  # Zsh config with syntax highlighting colors
 zsh/.zshenv                                 # Zsh environment
 install.sh                                  # Linux installer
+
+# macOS (Ghostty + Zsh)
+install-macos.sh                            # macOS installer (Homebrew)
 
 # Windows (Windows Terminal + PowerShell)
 windows-terminal/northern-forest.json       # Windows Terminal color scheme
@@ -60,6 +63,47 @@ cd northern-forest-terminal
 
 ```bash
 cp ghostty/config ~/.config/ghostty/config
+cp starship/starship.toml ~/.config/starship.toml
+cp zsh/.zshrc ~/.zshrc
+cp zsh/.zshenv ~/.zshenv
+```
+
+---
+
+## macOS Setup (Ghostty + Zsh + Starship)
+
+### Dependencies
+
+Requires [Homebrew](https://brew.sh). Zsh is already the default shell on macOS.
+
+```bash
+brew install --cask ghostty
+brew install starship fastfetch zsh-autosuggestions zsh-syntax-highlighting
+brew install --cask font-jetbrains-mono-nerd-font
+```
+
+### Install
+
+```bash
+git clone https://github.com/ArthurDEV44/northern-forest-terminal.git
+cd northern-forest-terminal
+./install-macos.sh
+```
+
+The installer will:
+1. Install missing dependencies via Homebrew
+2. Copy Ghostty config (without the `command` line — macOS uses zsh by default)
+3. Copy `starship.toml` to `~/.config/starship.toml`
+4. Copy `.zshrc` and `.zshenv` to `~/`
+
+All existing configs are backed up before overwriting.
+
+### Manual install
+
+```bash
+mkdir -p ~/.config/ghostty
+# Remove the "command = ..." line (macOS uses zsh as default shell)
+sed '/^command = /d' ghostty/config > ~/.config/ghostty/config
 cp starship/starship.toml ~/.config/starship.toml
 cp zsh/.zshrc ~/.zshrc
 cp zsh/.zshenv ~/.zshenv
@@ -178,18 +222,18 @@ Install-Module -Name Terminal-Icons -Repository PSGallery -Force
 
 ## Starship prompt layout
 
-Single-line powerline prompt (shared between Linux and Windows):
+Two-line powerline prompt (shared across Linux, macOS, and Windows):
 - OS icon + username (left)
 - Hostname + directory (left)
 - Git branch & status (left)
 - Language versions: Node, Rust, Go, Python, Java, PHP, Ruby, Docker (left)
 - Command duration + clock (right)
 
-The `starship.toml` is fully cross-platform. The same file works on both Zsh and PowerShell.
+The `starship.toml` is fully cross-platform. The same file works on Zsh (Linux/macOS) and PowerShell (Windows).
 
 ## Customization
 
-**Linux (Ghostty)**:
+**Linux / macOS (Ghostty)**:
 - Transparency: `background-opacity` in `ghostty/config` (default: 0.90)
 - Font size: `font-size` in `ghostty/config`
 
@@ -197,10 +241,10 @@ The `starship.toml` is fully cross-platform. The same file works on both Zsh and
 - Transparency: `"opacity"` in Windows Terminal settings (default: 90)
 - Font size: `"font" > "size"` in Windows Terminal settings
 
-**Both**:
+**All platforms**:
 - Prompt segments: Edit `format` in `starship/starship.toml`
 - Directory aliases: Edit `[directory.substitutions]` in the starship config
-- OS icon: Edit `[os.symbols]` — Windows uses `󰍲`
+- OS icon: Edit `[os.symbols]` — macOS uses ``, Windows uses `󰍲`
 
 ## License
 
