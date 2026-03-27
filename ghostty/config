@@ -25,6 +25,14 @@ cursor-style = block
 selection-background = #1e3a34
 selection-foreground = #e0ece6
 
+# UX
+mouse-hide-while-typing = true
+copy-on-select = clipboard
+confirm-close-surface = false
+minimum-contrast = 1.1
+window-theme = ghostty
+shell-integration = detect
+
 # Window
 window-padding-x = 10
 window-padding-y = 6

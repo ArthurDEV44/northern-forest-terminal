@@ -5,10 +5,19 @@ SAVEHIST=10000
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_EXPIRE_DUPS_FIRST
 setopt AUTO_CD
+setopt NO_BEEP
 
-# --- Completion ---
-autoload -Uz compinit && compinit
+# --- Completion (cached, rescan once per day) ---
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
@@ -47,6 +56,9 @@ ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=#d4555e"
 bindkey -e
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
+bindkey '^[[3~' delete-char
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
 
 # --- Path ---
 export PATH="$HOME/.local/bin:$PATH"
@@ -63,7 +75,7 @@ alias cct='tmux new-session -s claude-team "claude"'
 eval "$(starship init zsh)"
 
 # --- Custom Launch Terminal ---
-fastfetch
+[[ $- == *i* ]] && fastfetch
 
 # bun completions
 [ -s "/home/arthur/.bun/_bun" ] && source "/home/arthur/.bun/_bun"

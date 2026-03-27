@@ -1,5 +1,9 @@
 # Northern Forest - Starship Prompt
-# Single-line powerline with user@host
+# Two-line powerline with user@host
+
+scan_timeout = 10
+command_timeout = 500
+add_newline = false
 
 format = """
 [](fg:nf_bark)\
@@ -21,6 +25,7 @@ $java\
 $php\
 $ruby\
 $docker_context\
+$jobs\
 [](fg:nf_shade)\
 $fill\
 [](fg:nf_shade)\
@@ -150,6 +155,11 @@ format = "[ $symbol$version ]($style)"
 symbol = " "
 style = "bg:nf_shade fg:nf_sky"
 format = "[ $symbol$context ]($style)"
+
+[jobs]
+symbol = "󰜎 "
+style = "bg:nf_shade fg:nf_amber"
+format = "[ $symbol$number ]($style)"
 
 [fill]
 symbol = " "
